@@ -5,6 +5,7 @@ import java.util.ResourceBundle;
 
 import javafx.animation.*;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 
@@ -19,12 +20,17 @@ public class HelloController {
     @FXML
     private ImageView bg1, bg2, player, enemy;
 
+    @FXML
+    private Label labelPause;
+
     private final int BG_WIDTH = 707;
 
     private ParallelTransition parallelTransition;
+    private TranslateTransition enemyTransition;
     public static boolean jump = false;
     public static boolean right = false;
     public static boolean left = false;
+    public static boolean isPause = false;
 
     private int playerSpeed = 3, jumpDownSpeed = 5;
 
@@ -43,6 +49,21 @@ public class HelloController {
                player.setLayoutX(player.getLayoutX() + playerSpeed);
            if (left && player.getLayoutX() > 28f)
                player.setLayoutX(player.getLayoutX() - playerSpeed);
+
+           if(isPause && !labelPause.isVisible()) {
+               playerSpeed = 0;
+               jumpDownSpeed = 0;
+               parallelTransition.pause();
+               enemyTransition.pause();
+               labelPause.setVisible(true);
+           }
+           else if(!isPause && labelPause.isVisible()) {
+               labelPause.setVisible(false);
+               playerSpeed = 3;
+               jumpDownSpeed = 5;
+               parallelTransition.play();
+               enemyTransition.play();
+           }
         }
     };
 
@@ -59,7 +80,7 @@ public class HelloController {
         bgTwoTransition.setToX(BG_WIDTH * -1);
         bgTwoTransition.setInterpolator(Interpolator.LINEAR);
 
-        TranslateTransition enemyTransition = new TranslateTransition(Duration.millis(3500), enemy);
+        enemyTransition = new TranslateTransition(Duration.millis(3500), enemy);
         enemyTransition.setFromX(0);
         enemyTransition.setToX(BG_WIDTH * -1 - 100);
         enemyTransition.setInterpolator(Interpolator.LINEAR);
