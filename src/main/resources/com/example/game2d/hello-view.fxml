@@ -23,12 +23,17 @@
             <Image url="@images/player.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="enemy" fitHeight="81.0" fitWidth="64.0" layoutX="733.0" layoutY="254.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="enemy" fitHeight="33.0" fitWidth="27.0" layoutX="729.0" layoutY="285.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/enemy.png" />
          </image>
       </ImageView>
       <Label fx:id="labelPause" focusTraversable="false" layoutX="282.0" layoutY="170.0" text="Pause" visible="false">
+         <font>
+            <Font name="Britannic Bold" size="64.0" />
+         </font>
+      </Label>
+      <Label fx:id="labelLose" focusTraversable="false" layoutX="288.0" layoutY="164.0" text="Lose " visible="false">
          <font>
             <Font name="Britannic Bold" size="64.0" />
          </font>
