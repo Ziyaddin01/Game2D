@@ -12,7 +12,7 @@
             <Image url="@images/bg.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="bg2" fitHeight="400.0" fitWidth="717.0" layoutX="708.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="bg2" fitHeight="400.0" fitWidth="717.0" layoutX="711.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/bg.jpg" />
          </image>
@@ -20,6 +20,11 @@
       <ImageView fx:id="player" fitHeight="136.0" fitWidth="132.0" layoutX="7.0" layoutY="189.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/player.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="enemy" fitHeight="81.0" fitWidth="64.0" layoutX="733.0" layoutY="254.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/enemy.png" />
          </image>
       </ImageView>
    </children>
